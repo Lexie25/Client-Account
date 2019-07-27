@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+        <table th:each="info : ${client}">
+                <tr>
+                    <td><h1 th:text="${information.name}"></h1></td>
+                </tr>
+                <tr>
+                    <td>CPF:</td>
+                    <td><p th:text="${information.cpf}"></p></td>
+                </tr>
+                <tr>
+                    <td>Telephone:</td>
+                    <td><p th:text="${information.telephone}"></p></td>
+                </tr>
+                <tr>
+                    <td>CurrentBalance:</td>
+                    <td><p th:text="${information.account.CurrentBalance}"></p></td>
+                </tr>
+                <tr>
+                    <td>Savings account:</td>
+                    <td> <p th:text="${information.account.SavingsAccount}"></p></td>
+                </tr>
+            </table>
+            <br>
+            <a href="/">Come back</a>
+
+    </head>
+    <body>

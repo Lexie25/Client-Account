@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:each="messages : ${messages}">
+    <p th:text="'* ' + ${messages}"></p>
+</div>
+<div>
+    <form method="POST">
+<p>Name:<imput type="text" name="name"></p>
+<p>CPF<input type="text" name="cpf"></p>
+<p>Telephone<input type="text" name="Telephone"></p> 
+<p>Current Account Balance: <input type="number" step="any" value="0" name="CurrentAccount Balance:"> </p>   
+<p>Savings Account Balance:<input type="number" step="any" value="0" name="Savings Account Balance:"> </p>
+
+<button type="submit">Register</button>
+</form>
+</div>
+
+<div>
+<h1>Client</h1>
+<ul th:each="client : ${Client}">
+    <li><a href="" th:attr="href=@{'/client/' + ${client.id}}"th:text="${client.name}"></a></li>
+</ul>
+</div>
+    </head>
+    <body>
