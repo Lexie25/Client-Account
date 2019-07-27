@@ -34,7 +34,7 @@ public class Client implements Serializable{
 	private String phone;
 	
 	@OneToOne(mappedBy = "client")
-	private String account;
+	private Account account;
 	
 	public Client() {
 	}
@@ -71,11 +71,11 @@ public class Client implements Serializable{
 		this.phone = phone;
 	}
 
-	public String getAccount() {
+	public Account getAccount() {
 		return account;
 	}
 
-	public void setAccount(String account) {
+	public void setAccount(Account account) {
 		this.account = account;
 	}
 	

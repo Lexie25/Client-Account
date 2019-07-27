@@ -13,17 +13,17 @@ import com.br.zup.Client.Account.Repositories.ClientRepository;
 public class ClientService {
 
 	private ClientService clientService;
-	
+
 	@Autowired
 	private ClientRepository clientRepository;
-	
+
 	@Autowired
 	private AccountRepository accountRepository;
-	
+
 	public Iterable<Client> displayCustomers(){
 		return clientRepository.findAll();
 	}
-	
+
 	public String registerCustomer( Client client, Account account) {
 		if(account.getCurrentBalance() < 150) {
 			return "insufficient funds";
@@ -36,4 +36,7 @@ public class ClientService {
 	public Client displayCustomerInformation(Integer id) {
 		return clientRepository.findById(id).get();
 	}
+	public String displayCustumerInformation ( Client client, Account account) {
+		return "customer information";
+}
 }

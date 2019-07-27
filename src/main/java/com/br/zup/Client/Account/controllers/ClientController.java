@@ -26,7 +26,7 @@ public class ClientController {
 
 	@GetMapping("/")
 	public ModelAndView displayForm() {
-		ModelAndView modelAndView = new ModelAndView();
+		ModelAndView modelAndView = new ModelAndView("custumer.html");
 		modelAndView.addObject("Client", clientService.displayCustomers());
 		return modelAndView;
 	}
@@ -50,7 +50,7 @@ public class ClientController {
 			return modelAndView;
 		} else {
 			modelAndView.addObject("message", clientService.registerCustomer(cliente, conta));
-			
+
 		}
 		modelAndView.addObject("Client", clientService.displayCustomers());
 		return modelAndView;
@@ -61,6 +61,13 @@ public class ClientController {
 
 		ModelAndView modelAndView = new ModelAndView("customerInformation.html");
 		modelAndView.addObject("client", clientService.displayCustomerInformation(id));
+		return modelAndView;
+	}
+	@PostMapping("/client/{id}")
+	public ModelAndView displayCustumerInformation(@Valid Client cliente, BindingResult bindingClient, @Valid Account conta,
+			BindingResult bindinAccount) {
+		ModelAndView modelAndView = new ModelAndView("custumerInformation.html");
+
 		return modelAndView;
 	}
 }
